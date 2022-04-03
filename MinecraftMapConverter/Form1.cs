@@ -110,13 +110,15 @@ namespace MinecraftMapConverter
 
         private void buttonConvert_Click(object sender, EventArgs e)
         {
-            if(InputMod == null || comboBoxInput.SelectedItem == null)
+            if(InputMod == null || comboBoxInput.SelectedItem == null || OutputMod == null || comboBoxOutput.SelectedItem == null)
             {
                 return;
             }
 
             var waypoints = InputMod.ExtractWaypoints(comboBoxInput.SelectedItem as string);
-            Console.WriteLine(waypoints);
+            OutputMod.SaveWaypoints(comboBoxOutput.SelectedItem as string, waypoints);
+
+            MessageBox.Show("Writing waypoints completed!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

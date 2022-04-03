@@ -37,6 +37,7 @@
             this.comboBoxInput = new System.Windows.Forms.ComboBox();
             this.comboBoxOutput = new System.Windows.Forms.ComboBox();
             this.buttonConvert = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,15 +53,17 @@
             this.tableLayoutPanel1.Controls.Add(this.comboBoxInput, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxOutput, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonConvert, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1014, 209);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -79,7 +82,7 @@
             this.linkLabelMinecraftPath.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkLabelMinecraftPath.Location = new System.Drawing.Point(223, 0);
             this.linkLabelMinecraftPath.Name = "linkLabelMinecraftPath";
-            this.linkLabelMinecraftPath.Size = new System.Drawing.Size(574, 28);
+            this.linkLabelMinecraftPath.Size = new System.Drawing.Size(788, 28);
             this.linkLabelMinecraftPath.TabIndex = 1;
             this.linkLabelMinecraftPath.TabStop = true;
             this.linkLabelMinecraftPath.Text = "linkLabelMinecraftPath";
@@ -112,7 +115,7 @@
             this.comboBoxInput.FormattingEnabled = true;
             this.comboBoxInput.Location = new System.Drawing.Point(223, 31);
             this.comboBoxInput.Name = "comboBoxInput";
-            this.comboBoxInput.Size = new System.Drawing.Size(574, 23);
+            this.comboBoxInput.Size = new System.Drawing.Size(788, 23);
             this.comboBoxInput.TabIndex = 4;
             this.comboBoxInput.SelectedIndexChanged += new System.EventHandler(this.comboBoxInput_SelectedIndexChanged);
             // 
@@ -123,7 +126,7 @@
             this.comboBoxOutput.FormattingEnabled = true;
             this.comboBoxOutput.Location = new System.Drawing.Point(223, 59);
             this.comboBoxOutput.Name = "comboBoxOutput";
-            this.comboBoxOutput.Size = new System.Drawing.Size(574, 23);
+            this.comboBoxOutput.Size = new System.Drawing.Size(788, 23);
             this.comboBoxOutput.TabIndex = 5;
             this.comboBoxOutput.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutput_SelectedIndexChanged);
             // 
@@ -137,11 +140,23 @@
             this.buttonConvert.UseVisualStyleBackColor = true;
             this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.Firebrick;
+            this.label4.Location = new System.Drawing.Point(223, 188);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(788, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "You should backup XaeroWaypoints folder before clicking!";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1014, 209);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Minecraft Map Converter";
@@ -162,5 +177,6 @@
         private ComboBox comboBoxInput;
         private ComboBox comboBoxOutput;
         private Button buttonConvert;
+        private Label label4;
     }
 }
