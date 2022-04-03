@@ -25,4 +25,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Publish
-      run: dotnet publish /p:PublishProfile=FolderProfile
+      run: dotnet publish MinecraftMapConverter/MinecraftMapConverter.csproj /p:Configuration=Release /p:PublishProfile=FolderProfile 
