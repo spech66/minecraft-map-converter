@@ -42,6 +42,64 @@ namespace MinecraftMapConverter
                 this.linkLabelMinecraftPath.Text = "Select Minecraft Folder";
                 this.MinecraftFolder = null;
             }
+
+            GetInputWorlds();
+            GetOutputWorlds();
+            CheckFields();
+        }
+
+        private void GetInputWorlds()
+        {
+            if (this.MinecraftFolder == null)
+            {
+                return;
+            }
+
+            var voxelMap = new MinecraftTools.MapMods.VoxelMap(this.MinecraftFolder);
+            comboBoxInput.Items.Clear();
+            comboBoxInput.Items.AddRange(voxelMap.Worlds);
+
+            if(comboBoxInput.Items.Count > 0)
+            {
+                comboBoxInput.SelectedIndex = 0;
+            }
+        }
+
+        private void GetOutputWorlds()
+        {
+            if (this.MinecraftFolder == null)
+            {
+                return;
+            }
+
+            var xaeroWaypoints = new MinecraftTools.MapMods.XaeroWaypoints(this.MinecraftFolder);
+            comboBoxOutput.Items.Clear();
+            comboBoxOutput.Items.AddRange(xaeroWaypoints.Worlds);
+
+            if (comboBoxOutput.Items.Count > 0)
+            {
+                comboBoxOutput.SelectedIndex = 0;
+            }
+        }
+
+        private void CheckFields()
+        {
+            buttonConvert.Enabled = false;
+
+            if (!string.IsNullOrWhiteSpace(this.MinecraftFolder) && comboBoxInput.SelectedItem != null && comboBoxOutput.SelectedItem != null)
+            {
+                buttonConvert.Enabled = true;
+            }
+        }
+
+        private void comboBoxInput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckFields();
+        }
+
+        private void comboBoxOutput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CheckFields();
         }
     }
 }
