@@ -107,5 +107,16 @@ namespace MinecraftMapConverter
         {
             CheckFields();
         }
+
+        private void buttonConvert_Click(object sender, EventArgs e)
+        {
+            if(InputMod == null || comboBoxInput.SelectedItem == null)
+            {
+                return;
+            }
+
+            var waypoints = InputMod.ExtractWaypoints(comboBoxInput.SelectedItem as string);
+            Console.WriteLine(waypoints);
+        }
     }
 }

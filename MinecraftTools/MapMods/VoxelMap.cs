@@ -23,8 +23,14 @@ namespace MinecraftTools.MapMods
             get
             {
                 List<string> worlds = new List<string>();
-                worlds.Add("1");
 
+                var voxelMaps = Path.Combine(MinecraftFolder, "voxelmap\\cache");
+                if (!Directory.Exists(voxelMaps))
+                {
+                    return worlds;
+                }
+
+                worlds.AddRange(Directory.GetDirectories(voxelMaps));
                 worlds.Sort();
                 return worlds;
             }

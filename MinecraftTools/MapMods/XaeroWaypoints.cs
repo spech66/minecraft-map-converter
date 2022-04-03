@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MinecraftTools.MapMods
 {
+    /// <summary>
+    /// File format information https://www.planetminecraft.com/blog/how-to-convert-voxelmap-waypoints-to-xaero-s-minimap-waypoints/
+    /// </summary>
     public class XaeroWaypoints : IMapMod
     {
         private string MinecraftFolder { get; set; }
@@ -20,12 +23,19 @@ namespace MinecraftTools.MapMods
             get
             {
                 List<string> worlds = new List<string>();
-                worlds.Add("1");
 
+                var xaeroWaypoints = Path.Combine(MinecraftFolder, "XaeroWaypoints");
+                if(!Directory.Exists(xaeroWaypoints))
+                {
+                    return worlds;
+                }
+
+                worlds.AddRange(Directory.GetDirectories(xaeroWaypoints));
                 worlds.Sort();
                 return worlds;
             }
         }
+
         public List<Waypoint> ExtractWaypoints(string world)
         {
             throw new NotImplementedException();
