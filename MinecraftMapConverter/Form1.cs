@@ -1,8 +1,14 @@
+using MinecraftTools.MapMods;
+
 namespace MinecraftMapConverter
 {
     public partial class Form1 : Form
     {
-        string? MinecraftFolder { get; set; }
+        private string? MinecraftFolder { get; set; }
+
+        private IMapMod? InputMod { get; set; } = null;
+
+        private IMapMod? OutputMod { get; set; } = null;
 
         public Form1()
         {
@@ -55,9 +61,9 @@ namespace MinecraftMapConverter
                 return;
             }
 
-            var voxelMap = new MinecraftTools.MapMods.VoxelMap(this.MinecraftFolder);
+            this.InputMod = new VoxelMap(this.MinecraftFolder);
             comboBoxInput.Items.Clear();
-            comboBoxInput.Items.AddRange(voxelMap.Worlds);
+            comboBoxInput.Items.AddRange(this.InputMod.Worlds.ToArray());
 
             if(comboBoxInput.Items.Count > 0)
             {
@@ -72,9 +78,9 @@ namespace MinecraftMapConverter
                 return;
             }
 
-            var xaeroWaypoints = new MinecraftTools.MapMods.XaeroWaypoints(this.MinecraftFolder);
+            this.OutputMod = new XaeroWaypoints(this.MinecraftFolder);
             comboBoxOutput.Items.Clear();
-            comboBoxOutput.Items.AddRange(xaeroWaypoints.Worlds);
+            comboBoxOutput.Items.AddRange(this.OutputMod.Worlds.ToArray());
 
             if (comboBoxOutput.Items.Count > 0)
             {

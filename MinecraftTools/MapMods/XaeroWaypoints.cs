@@ -15,14 +15,25 @@ namespace MinecraftTools.MapMods
             this.MinecraftFolder = minecraftFolder;
         }
 
-        public string[] Worlds
+        public List<string> Worlds
         {
             get
             {
                 List<string> worlds = new List<string>();
                 worlds.Add("1");
-                return worlds.ToArray();
+
+                worlds.Sort();
+                return worlds;
             }
+        }
+        public List<Waypoint> ExtractWaypoints(string world)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveWaypoints(string world, List<Waypoint> waypoints)
+        {
+            throw new NotImplementedException();
         }
     }
 }
